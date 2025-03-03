@@ -19,7 +19,7 @@ export const BudgetTracker = () => {
   const percentage = ((totalExpenses / state.budget) * 100).toFixed(2);
 
   const handleReset = () => {
-    dispatch({ type: "reset-app" }); // ✅ Enviar acción para resetear la app
+    dispatch({ type: "reset-app" }); 
   };
 
   return (
@@ -37,7 +37,7 @@ export const BudgetTracker = () => {
       <div className="flex flex-col justify-center items-center gap-8">
         <button
           className="bg-pink-600 w-full p-2 text-white uppercase font-bold rounded-lg"
-          onClick={handleReset} // ✅ Llamamos a la función de reseteo
+          onClick={handleReset} 
         >
           Resetear App
         </button>

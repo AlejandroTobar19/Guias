@@ -11,7 +11,7 @@ import {
 import "react-swipeable-list/dist/styles.css";
 
 export const ExpenseDetails = ({ expense }) => {
-    const dispatch = useContext(BudgetDispatchContext); // ✅ Recuperando el dispatch del reducer desde el context
+    const dispatch = useContext(BudgetDispatchContext); 
 
     // Define una acción que se mostrará cuando el usuario deslice hacia la izquierda.
     const leadingAction = () => ( 
@@ -24,7 +24,7 @@ export const ExpenseDetails = ({ expense }) => {
 
     // Define una acción que se mostrará cuando el usuario deslice hacia la derecha.
     const trailingAction = () => (
-        <TrailingActions> {/* Contenedor de acciones a la derecha */}
+        <TrailingActions> 
             <SwipeAction
                 destructive={true}
                 onClick={() => dispatch({ type: "remove-expense", payload: { id: expense.id } })}
@@ -34,7 +34,7 @@ export const ExpenseDetails = ({ expense }) => {
         </TrailingActions>
     );
 
-    const categoryInfo = categories.find(cat => cat.id === expense.category); // ✅ Recuperando el nombre de la categoría
+    const categoryInfo = categories.find(cat => cat.id === expense.category); 
 
     return (
         <SwipeableList>

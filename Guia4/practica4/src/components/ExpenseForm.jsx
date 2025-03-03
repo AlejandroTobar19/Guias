@@ -17,9 +17,9 @@ export const ExpenseForm = () => {
     const dispatch = useContext(BudgetDispatchContext);
     const state = useContext(BudgetStateContext);
 
-    // 🟢 Cálculo del total gastado
+    
     const totalExpenses = state.expenses.reduce((total, exp) => total + exp.amount, 0);
-    const remainingBudget = state.budget - totalExpenses; // 🟢 Presupuesto restante
+    const remainingBudget = state.budget - totalExpenses; 
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -44,7 +44,7 @@ export const ExpenseForm = () => {
             return;
         }
 
-        // 🛑 Validación: Verificar si el gasto excede el presupuesto disponible
+        
         if (expense.amount > remainingBudget) {
             setError('Error: El gasto supera el presupuesto disponible.');
             return;
@@ -68,7 +68,7 @@ export const ExpenseForm = () => {
             category: "",
             date: new Date(),
         });
-        setError(''); // Limpiar error después de una operación exitosa
+        setError(''); 
     };
 
     return (

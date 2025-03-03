@@ -8,13 +8,13 @@ const localStorageExpenses = () => {
   return localStorageExpenses ? JSON.parse(localStorageExpenses) : []
 };
 
-// ✅ Ahora sí se puede usar en `initialState`
+
 export const initialState = {
   budget: initialBudget(),
   modal: false,
   expenses: localStorageExpenses(),
-  editingId: "", // Para edición
-  currentCategory: "" // Para filtrar gastos por categoría
+  editingId: "", 
+  currentCategory: "" 
 };
 
 export const budgetReducer = (state, action) => {
@@ -24,13 +24,13 @@ export const budgetReducer = (state, action) => {
     case "show-modal":
       return { ...state, modal: true }
     case "close-modal":
-      return { ...state, modal: false, editingId: "" } // Se agregó para resetear editingId
+      return { ...state, modal: false, editingId: "" } 
     case "add-expense":
       const newTotalExpenses = state.expenses.reduce((total, expense) => total + expense.amount, 0) + action.payload.expense.amount;
 
       if (newTotalExpenses > state.budget) {
-        alert("Error: No puedes agregar un gasto que exceda el presupuesto disponible."); // Opcional: mostrar alerta
-        return state; // No modifica el estado
+        alert("Error: No puedes agregar un gasto que exceda el presupuesto disponible."); 
+        return state; 
       }
 
       return {
@@ -50,10 +50,10 @@ export const budgetReducer = (state, action) => {
 
 
     case "reset-app":
-      localStorage.removeItem("budget"); // Eliminar el presupuesto de localStorage
-      localStorage.removeItem("expenses"); // Eliminar los gastos de localStorage
+      localStorage.removeItem("budget"); 
+      localStorage.removeItem("expenses"); 
       return {
-        ...initialState, // Reinicia al estado inicial
+        ...initialState, 
         budget: 0,
         expenses: [],
         editingId: "",
@@ -61,7 +61,7 @@ export const budgetReducer = (state, action) => {
       };
 
 
-      
+
     case "get-expense-by-id":
       return {
         ...state,
@@ -76,7 +76,7 @@ export const budgetReducer = (state, action) => {
 
       if (updatedTotalExpenses > state.budget) {
         alert("Error: No puedes modificar este gasto porque excede el presupuesto.");
-        return state; // No modifica el estado
+        return state; 
       }
 
       return {

@@ -8,7 +8,7 @@ export const FilterByCategory = () => {
     const handleChange = (e) => {
         dispatch({
             type: "add-filter-category",
-            payload: { categoryId: e.target.value } // ✅ Enviamos el ID de la categoría seleccionada
+            payload: { categoryId: e.target.value } 
         });
     };
 
@@ -20,7 +20,7 @@ export const FilterByCategory = () => {
                     <select
                         id="category"
                         className="bg-slate-100 p-3 flex-1 rounded"
-                        onChange={handleChange} // ✅ Ahora escucha el cambio
+                        onChange={handleChange} 
                     >
                         <option value="">--- Todas las categorías ---</option>
                         {categories.map((category) => (

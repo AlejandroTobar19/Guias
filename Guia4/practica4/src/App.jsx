@@ -25,7 +25,7 @@ function App() {
       </div>
       {isValidBudget && (
         <main className="max-w-3xl mx-auto py-10">
-          <FilterByCategory />  {/* ✅ Se inserta el filtro antes del listado */}
+          <FilterByCategory />  
           <ExpenseList />
           <ExpenseModal />
         </main>
