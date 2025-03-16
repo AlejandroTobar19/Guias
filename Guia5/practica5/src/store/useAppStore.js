@@ -2,8 +2,10 @@ import { create } from "zustand";
 import { devtools } from "zustand/middleware";
 import { createRecipesSlice } from "./recipeSlice";
 import { createFavoritesSlice } from "./favoritesSlice";
+import { createNotificationsSlice } from "./notificationsSlice";
 
 export const useAppStore = create(devtools((...args) => ({
     ...createRecipesSlice(...args),
-    ...createFavoritesSlice(...args)
+    ...createFavoritesSlice(...args),
+    ...createNotificationsSlice(...args),
 })))

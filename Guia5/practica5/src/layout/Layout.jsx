@@ -3,6 +3,7 @@ import Header from "../components/Header"
 import Modal from "../components/Modal"
 import { useAppStore } from "../store/useAppStore"
 import { useEffect } from "react"
+import Notification from "../components/Notification"
 
 export default function Layout() {
 
@@ -20,6 +21,7 @@ export default function Layout() {
             <main className="mx-auto container py-16">
                 <Outlet />
             </main>
+            <Notification />
 
             <Modal />
         </>

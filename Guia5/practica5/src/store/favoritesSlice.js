@@ -9,16 +9,21 @@ export const createFavoritesSlice = (set, get) => ({
 
     // Maneja el clic en el botón de favorito (agregar o eliminar)
     handleClickFavorite: (recipe) => {
+
+        const { showNotification } = get();
+
         if (get().favoriteExists(recipe.idDrink)) {
             // Si la receta ya está en favoritos, la eliminamos de la lista
             set((state) => ({
                 favorites: state.favorites.filter(favorite => favorite.idDrink != recipe.idDrink)
             }));
+            showNotification('Receta eliminada de favoritos', 'error');
         } else {
             // Si no está en favoritos, la agregamos
             set((state) => ({
                 favorites: [...state.favorites, recipe]
             }));
+            showNotification('Receta agregada a favoritos', 'success');
         }
 
         // Guardamos la lista actualizada de favoritos en localStorage
